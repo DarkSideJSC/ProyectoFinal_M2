@@ -1,0 +1,13 @@
+<div class="example-card"  *ngIf="product">
+    <h1>Este es el detalle del Producto:</h1>
+    <h3>{{ product.title }}</h3>
+    <img [src]="product.image" alt="{{ product.title }}" class="product-image">
+    <p><strong>Descripción:</strong> {{ product.description }}</p>
+    <p><strong>Precio:</strong> ${{ product.price }}</p>
+    <p><strong>Categoría:</strong> {{ product.category }}</p>
+    <button mat-button (click)="goBack()">Volver a la lista</button>
+  </div>
+  <div *ngIf="!product">
+    <p>Producto no encontrado.</p>
+    <button mat-button (click)="goBack()">Volver a la lista</button>
+  </div>

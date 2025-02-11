@@ -1,0 +1,23 @@
+<h2>Detalle de productos comprados</h2>
+<p>Cantidad de productos: {{ cantidadProductos }}</p>
+<table class="content-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Producto</th>
+        <th>Descripci&oacute;n</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of productos; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>Bs{{ item.price }}.-</td>
+      </tr>
+    </tbody>
+  </table>
+  <button mat-raised-button color="primary" (click)="vaciarCarrito()" >Borrar compra</button>
+ 
+
