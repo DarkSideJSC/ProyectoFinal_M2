@@ -1,14 +1,17 @@
 <mat-card class="example-card" appearance="outlined" >
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Producto: {{ title }}</mat-card-title>
-      <mat-card-subtitle>C&oacute;dico de Producto: {{ id }}</mat-card-subtitle>
-      <mat-card-subtitle>Categor&iacute;a: {{ category }}</mat-card-subtitle>
-    </mat-card-header>
+  <div id="logo-contenedor">
     <img mat-card-image src="{{ image }}" alt="Photo del producto {{ title }}">
+  </div>    
+  <mat-card-header>
+      <mat-card-title>Producto: {{ title }}</mat-card-title>
+      <mat-card-subtitle>Categor&iacute;a: {{ category }}</mat-card-subtitle>
+  </mat-card-header>  
     <mat-card-content>
       <p>
-        {{ description }} con un precio de Bs: {{ price }}
+        {{ description }}
+      </p>
+      <p>  
+        Price Bs.{{ price }} 
       </p>
     </mat-card-content>
     <mat-card-actions>

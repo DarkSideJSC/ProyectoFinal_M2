@@ -1,7 +1,7 @@
 import { Injectable , inject} from "@angular/core";
 import { HttpClient } from "@angular/common/http"; 
 import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +17,12 @@ export class Product2Service {
   getProductById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
-  filterProducts(termino: string): Observable<any> {
+
+  filterProducts(termino: string, products: any[]): any[] {
     const lowerTerm = termino.toLowerCase();
-    return this.getProducts().pipe(
-      map((products: any[]) => products.filter(product =>
-        product.title.toLowerCase().includes(lowerTerm) ||
-        product.category.toLowerCase().includes(lowerTerm)
-      ))
+    return products.filter(product =>
+      product.title.toLowerCase().includes(lowerTerm) ||
+      product.category.toLowerCase().includes(lowerTerm)
     );
   }
 }

@@ -13,21 +13,22 @@ import {MatButtonModule} from '@angular/material/button';
 export class CarritoCompraComponent implements OnInit {
   productos: any[] = [];
   cantidadProductos: number=0;
+  sumaProductosTotal: number = 0;
+
 
   constructor(private comprasService: ComprasService) {}
-
+  vVisible: boolean= false; 
   ngOnInit() {
     this.comprasService.carrito$.subscribe(productos => {
       this.productos = productos;
       this.cantidadProductos = productos.length;
+
     });
   }
   vaciarCarrito() {
-    this.comprasService.limpiarCarrito(); // Llamada a un método en tu servicio que limpia el carrito
-    this.productos = []; // Limpia la lista de productos en el componente
-    this.cantidadProductos = 0; // Resetea la cantidad
+    this.comprasService.limpiarCarrito();
+    this.productos = []; 
+    this.cantidadProductos = 0; 
   }
-  totalCarrito() {
-    return this.productos.reduce((acc, producto) => acc + producto.price, 0);
-  }
+  
 }

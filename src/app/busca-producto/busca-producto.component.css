@@ -1,13 +1,21 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.product-list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+  justify-content: flex-start;
+}
+.error-message {
+  color: red; /* Corregido el nombre de la propiedad */
+}
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(50% - 20px); /* En pantallas medianas, las tarjetas ocupan el 50% del espacio */
   }
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: calc(100% - 20px); /* En pantallas pequeñas, las tarjetas ocupan el 100% del espacio */
   }
-  error-message{
-    stop-color: red;
-  }
+}
+

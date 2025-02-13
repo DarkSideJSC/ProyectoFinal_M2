@@ -15,9 +15,5 @@ export class AppComponent {
   title = 'Diplomado Modulo2';
   productos: Product[] = [];
   carrito: Product[] = [];
-  buscarRealizado = false;
-
-  actualizarEstadoBusqueda(estado: boolean) {
-    this.buscarRealizado = estado;
-  }    
+   
 }

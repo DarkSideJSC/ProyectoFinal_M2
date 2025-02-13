@@ -4,12 +4,16 @@ import { Product2Service } from '../services/product2.service';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import { Product } from '../services/product.service';
+import {
+  MatDialogContent,
+} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './detail-product.component.html',
   styleUrls: ['./detail-product.component.css'],
-  imports: [CommonModule,MatButtonModule],
+  imports: [CommonModule,MatButtonModule, MatDialogContent,],
   providers: [Product2Service] 
 })
 export class ProductDetailComponent implements OnInit {

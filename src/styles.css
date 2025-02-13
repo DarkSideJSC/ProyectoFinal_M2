@@ -1,5 +1,7 @@
 
 html, body {
      height: 90%; 
+     background-color: rgba(212, 207, 207, 0.951);
+     color: rgb(31, 31, 30);
 }
 body { margin: 5px; font-family: Roboto, "Helvetica Neue", sans-serif; }

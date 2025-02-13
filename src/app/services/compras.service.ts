@@ -5,6 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ComprasService {
+  getProductos() {
+    throw new Error('Method not implemented.');
+  }
+  map(arg0: (t: any) => any) {
+    throw new Error('Method not implemented.');
+  }
   private productosEnCarrito: any[] = [];
   private carritoSubject = new BehaviorSubject<any[]>([]);
 
@@ -27,4 +33,5 @@ export class ComprasService {
   obtenerProductos() {
     return this.productosEnCarrito;
   }
+  
 }
