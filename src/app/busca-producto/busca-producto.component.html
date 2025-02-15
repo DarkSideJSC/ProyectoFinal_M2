@@ -1,39 +1,65 @@
 <div>
   <form [formGroup]="formularioBusqueda">
     <mat-form-field appearance="outline">
-      <mat-label>Buscar Producto (doble click)</mat-label>
-      <input 
-        matInput 
-        formControlName="termino" 
-        type="text" 
+      <mat-label>Buscar Producto: </mat-label>
+      <input
+        matInput
+        formControlName="termino"
+        type="text"
         placeholder="Nombre o categoría del producto"
-        [ngClass]="{'input-error': formularioBusqueda.get('termino')?.invalid && formularioBusqueda.get('termino')?.touched}"
-        autocomplete="on">
-    </mat-form-field><br>
-    <button mat-raised-button color="primary" (click)="buscarProducto()">Buscar</button> &nbsp;   
-    <button mat-stroked-button color="primary" (click)="borrar()" >Borrar</button>
-    </form>
-  <div class="error-message" *ngIf="formularioBusqueda.get('termino')?.invalid && formularioBusqueda.get('termino')?.touched">
-    Ingrese una palabra válida 
+        (keyup.enter)="buscarProducto()"
+        (change)="buscarProducto()"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="buscarProducto()">
+      Buscar
+    </button>
+    &nbsp;
+    <button mat-stroked-button color="primary" (click)="borrar()">
+      Borrar 
+    </button>
+  </form>
+  <div
+    class="error-message"
+    *ngIf="
+      formularioBusqueda.get('termino')?.invalid &&
+      formularioBusqueda.get('termino')?.touched
+    "
+  >
+    Ingrese una palabra válida
   </div>
-    
-    <div class="product-list" *ngIf="productosFiltrados.length > 0" >
-      <h3>Productos encontrados:</h3>
-      <div class="product-card" *ngFor="let product of productosFiltrados | paginate: { itemsPerPage: 3, currentPage: page }">
-        <app-product-card
-          [id]="product.id" 
-          [title]="product.title"
-          [description]="product.description"
-          [price]="product.price"
-          [image]="product.image"
-          [category]="product.category">
-        </app-product-card>
-      </div>
+
+  <div class="product-list" *ngIf="productosFiltrados.length > 0">
+    <h3>Productos encontrados:</h3>
+    <div
+      class="product-card"
+      *ngFor="
+        let product of productosFiltrados
+          | paginate : { itemsPerPage: 3, currentPage: page }
+      "
+    >
+      <app-product-card
+        [id]="product.id"
+        [title]="product.title"
+        [description]="product.description"
+        [price]="product.price"
+        [image]="product.image"
+        [category]="product.category"
+      >
+      </app-product-card>
     </div>
-    <pagination-controls *ngIf="productosFiltrados.length > 0" align="center" (pageChange)="page = $event"></pagination-controls>
-  <div *ngIf="productosFiltrados.length === 0 && formularioBusqueda.get('termino')?.value">
+  </div>
+  <pagination-controls
+    *ngIf="productosFiltrados.length > 0"
+    align="center"
+    (pageChange)="page = $event"
+  ></pagination-controls>
+  <div
+    *ngIf="
+      productosFiltrados.length === 0 &&
+      formularioBusqueda.get('termino')?.value
+    "
+  >
     <p>No se encontraron productos.</p>
   </div>
 </div>
-
-

@@ -1,12 +1,16 @@
 .product-list {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-pagination-controls{
+pagination-controls {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+.error-message {
+  color: red;
+  font-weight: bold;
 }

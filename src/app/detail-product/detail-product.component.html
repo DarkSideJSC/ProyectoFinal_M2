@@ -1,14 +1,19 @@
 <div class="Campo-Detalle">
   <mat-dialog-content>
-    <div class="example-card"  *ngIf="product">
-        <h3>Detalle del Producto:</h3> {{ product.title }}
-        <div class="logo-contenedor">
-          <img [src]="product.image" alt="{{ product.title }}" class="product-image">
-        </div>
-          <p><strong>Descripción:</strong> {{ product.description }}</p>
-          <p><strong>Categoría:</strong> {{ product.category }}</p>
-          <p><strong>Precio:</strong> ${{ product.price }}</p>
-        <button mat-button (click)="goBack()">Volver a la lista</button>
+    <div class="example-card" *ngIf="product">
+      <h3>Detalle del Producto:</h3>
+      {{ product.title }}
+      <div class="logo-contenedor">
+        <img
+          [src]="product.image"
+          alt="{{ product.title }}"
+          class="product-image"
+        />
+      </div>
+      <p><strong>Descripción:</strong> {{ product.description }}</p>
+      <p><strong>Categoría:</strong> {{ product.category }}</p>
+      <p><strong>Precio:</strong> ${{ product.price }}</p>
+      <button mat-button (click)="goBack()">Volver a la lista</button>
     </div>
     <div *ngIf="!product">
       <p>Producto no encontrado.</p>

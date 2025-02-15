@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CommonModule } from '@angular/common';
 import { Product2Service } from '../services/product2.service';
@@ -14,31 +14,29 @@ import { NgxPaginationModule } from 'ngx-pagination';
   templateUrl: './product-list.component.html',
   imports: [ProductCardComponent, CommonModule, RouterModule, BuscaProductoComponent, CarritoCompraComponent, NgxPaginationModule],
 })
-export class ProductListComponent  implements OnInit{
+export class ProductListComponent  implements OnInit {
   vProducts: any[] = [];
   buscarRealizado = false;
   page: number = 1;
-  
+  error: any = null;  // Nueva propiedad para manejar errores
+
   constructor(@Inject(Product2Service) private product2Service: Product2Service) {}
- 
- 
+
   ngOnInit(): void {
-    this.product2Service.getProducts().subscribe((products: Product[]) => {
-      this.vProducts = products; 
-      console.log(this.vProducts);
-    }, error => {
-      console.error("Error al obtener los productos:", error);
-    });
+    this.product2Service.getProducts().subscribe(
+      (products: Product[]) => {
+        this.vProducts = products;
+        console.log(this.vProducts);
+      },
+      error => {
+        console.error("Error al obtener los productos:", error);
+        this.error = error;  // Almacenar el error en la propiedad error
+      }
+    );
   }
-  
+
   actualizarEstadoBusqueda(event: any): void {
-    this.buscarRealizado = event; 
+    this.buscarRealizado = event;
     console.log("Estado de la búsqueda:", this.buscarRealizado);
   }
 }
-
-
-
-
-
-

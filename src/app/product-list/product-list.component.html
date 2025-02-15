@@ -1,33 +1,39 @@
 <div>
-  <app-busca-producto (buscarEstado)="actualizarEstadoBusqueda($event)"></app-busca-producto>
-  <hr>
+  <app-busca-producto
+    (buscarEstado)="actualizarEstadoBusqueda($event)"
+  ></app-busca-producto>
+  <hr />
 </div>
 
 <div class="padre">
-
   <div class="hijo1" *ngIf="!buscarRealizado">
-      <h2>Lista de productos Tienda Modulo 2 - Angular</h2>
-      <div class="product-list">  
-        <div *ngFor="let product of vProducts | paginate: { itemsPerPage: 3, currentPage: page }" class="product-card">
-            <app-product-card
-            [id]="product.id" 
-            [title]="product.title"
-            [description]="product.description"
-            [price]="product.price"
-            [image]="product.image"
-            [category]="product.category"
-            >
-            </app-product-card>
-        </div>  
+    <h2>Lista de productos Tienda Modulo 2 - Angular</h2>
+    <div *ngIf="error" class="error-message">
+      Error al obtener los productos: {{ error.message }}
+    </div>
+    <div *ngIf="!error" class="product-list">
+      <div
+        *ngFor="
+          let product of vProducts
+            | paginate : { itemsPerPage: 3, currentPage: page }
+        "
+        class="product-card"
+      >
+        <app-product-card
+          [id]="product.id"
+          [title]="product.title"
+          [description]="product.description"
+          [price]="product.price"
+          [image]="product.image"
+          [category]="product.category"
+        >
+        </app-product-card>
       </div>
-      
-      <pagination-controls (pageChange)="page = $event"></pagination-controls>
-      
+    </div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 
   <div class="hijo2">
-      <app-carrito-compra></app-carrito-compra>
+    <app-carrito-compra></app-carrito-compra>
   </div>
-
 </div>
-

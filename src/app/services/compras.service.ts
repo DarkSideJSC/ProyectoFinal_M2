@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ComprasService {
   getProductos() {
@@ -33,5 +33,4 @@ export class ComprasService {
   obtenerProductos() {
     return this.productosEnCarrito;
   }
-  
 }

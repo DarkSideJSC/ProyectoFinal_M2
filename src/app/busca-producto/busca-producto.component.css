@@ -1,21 +1,39 @@
+.search-container {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+}
+
+mat-form-field {
+  width: 250px !important; 
+  font-size: 12px; 
+}
+
 .product-list{
   display: flex;
   justify-content: center;
   flex-wrap: wrap; 
   justify-content: flex-start;
 }
+
 .error-message {
-  color: red; /* Corregido el nombre de la propiedad */
+  color: red; 
+  font-size: small;
 }
+button {
+  height: 30px; 
+  font-size: 12px;
+}
+
 @media (max-width: 768px) {
   .product-card {
-    width: calc(50% - 20px); /* En pantallas medianas, las tarjetas ocupan el 50% del espacio */
+    width: calc(50% - 20px); 
   }
 }
 
 @media (max-width: 480px) {
   .product-card {
-    width: calc(100% - 20px); /* En pantallas pequeñas, las tarjetas ocupan el 100% del espacio */
+    width: calc(100% - 20px); 
   }
 }
 
